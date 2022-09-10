@@ -1,20 +1,24 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { client } from "libs/client";
+import { HeadInfo } from "utils/head";
 
 const Home: NextPage<{ blogs: any }> = ({ blogs }) => {
   return (
-    <div>
-      <ul>
-        {blogs.map((blog: any) => (
-          <li key={blog.id}>
-            <Link href={`/blog/${blog.id}`}>
-              <a>{blog.title}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <HeadInfo />
+      <div>
+        <ul>
+          {blogs.map((blog: any) => (
+            <li key={blog.id}>
+              <Link href={`/blog/${blog.id}`}>
+                <a>{blog.title}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 
