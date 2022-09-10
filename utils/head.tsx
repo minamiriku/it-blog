@@ -15,7 +15,6 @@ export const HeadInfo = ({
   title?: string;
   meta?: { name: string; content: string }[];
 }) => {
-  console.log(title);
   return (
     <Head>
       <title>{`${defaultHead.title}${title ? ` - ${title}` : ""}`}</title>
