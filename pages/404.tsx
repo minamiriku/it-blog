@@ -1,8 +1,10 @@
+import { Box } from "@chakra-ui/react";
+
 const Custom404 = () => {
   return (
-    <main className="main">
-      <p>ページがありません。</p>
-    </main>
+    <Box as="main">
+      <Box>ページがありません。</Box>
+    </Box>
   );
 };
 export default Custom404;
