@@ -8,6 +8,11 @@ const defaultHead = {
   },
 };
 
+export const joinDefaultHeadTitle = (title?: string) => {
+  if (!title) return defaultHead.title;
+  return `${defaultHead.title} - ${title}`;
+};
+
 export const HeadInfo = ({
   title,
   meta,
@@ -17,7 +22,7 @@ export const HeadInfo = ({
 }) => {
   return (
     <Head>
-      <title>{`${defaultHead.title}${title ? ` - ${title}` : ""}`}</title>
+      <title>{title ?? defaultHead.title}</title>
       {meta?.map((item, index) => (
         <meta key={index} name={item.name} content={item.content} />
       )) ?? (

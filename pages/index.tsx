@@ -1,23 +1,16 @@
 import type { NextPage } from "next";
-import Link from "next/link";
 import { client } from "libs/client";
-import { HeadInfo } from "utils/head";
+import { HeadInfo } from "components/head";
+import { CardList } from "components/core";
 
-const Home: NextPage<{ blogs: any }> = ({ blogs }) => {
+type Props = {
+  blogs: ITBlog.Blog[];
+};
+const Home: NextPage<Props> = ({ blogs }) => {
   return (
     <>
       <HeadInfo />
-      <div>
-        <ul>
-          {blogs.map((blog: any) => (
-            <li key={blog.id}>
-              <Link href={`/blog/${blog.id}`}>
-                <a>{blog.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <CardList blogs={blogs} />
     </>
   );
 };
@@ -25,11 +18,11 @@ const Home: NextPage<{ blogs: any }> = ({ blogs }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const data = await client.get({ endpoint: "blogs" });
+  const blogs = await client.get({ endpoint: "blogs" });
 
   return {
     props: {
-      blogs: data.contents,
+      blogs: blogs.contents,
     },
   };
 };
