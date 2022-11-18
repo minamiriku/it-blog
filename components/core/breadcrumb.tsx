@@ -45,7 +45,7 @@ export const BreadCrumb = () => {
       </BreadcrumbItem>
 
       <BreadcrumbItem isCurrentPage>
-        <BreadcrumbLink href="#">{category?.name}</BreadcrumbLink>
+        <BreadcrumbLink href="#">{category.name}</BreadcrumbLink>
       </BreadcrumbItem>
     </Breadcrumb>
   );
