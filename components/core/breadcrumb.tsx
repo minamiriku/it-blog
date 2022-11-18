@@ -22,16 +22,16 @@ export const BreadCrumb = () => {
   const router = useRouter();
   const { pathname, query } = router;
   const { id } = query;
-
   const { data, error } = useSWR("/api/categories", fetcher);
 
-  if (pathname === ROOT_PATH) return null;
   if (error) return <Box>failed to load</Box>;
   if (!data) return <Spinner />;
 
   const category: ITBlog.Category = data?.find(
     (item: ITBlog.Category) => item.id === id
   );
+
+  if (pathname === ROOT_PATH || !category) return null;
   return (
     <Breadcrumb spacing="8px" separator={<MdChevronRight color="gray.500" />}>
       <BreadcrumbItem>
@@ -40,12 +40,12 @@ export const BreadCrumb = () => {
           href="/"
           _hover={{ textDecoration: "underline" }}
         >
-          Home
+          Top
         </BreadcrumbLink>
       </BreadcrumbItem>
 
       <BreadcrumbItem isCurrentPage>
-        <BreadcrumbLink href="#">{category?.name}</BreadcrumbLink>
+        <BreadcrumbLink href="#">{category.name}</BreadcrumbLink>
       </BreadcrumbItem>
     </Breadcrumb>
   );
