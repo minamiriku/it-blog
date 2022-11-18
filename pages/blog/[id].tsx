@@ -6,6 +6,7 @@ import { IconText } from "components/icon";
 import { client } from "libs/client";
 import { formatDate } from "utils/format";
 import { ICONS } from "utils/icons";
+import { Link } from "components/core";
 
 const BlogId: NextPage<{ blog: ITBlog.Blog }> = ({ blog }) => {
   return (
@@ -16,9 +17,11 @@ const BlogId: NextPage<{ blog: ITBlog.Blog }> = ({ blog }) => {
         {blog.title}
       </Heading>
       <Flex w="full" mt={5} justifyContent="space-between">
-        <Tag size="sm" variant="solid" colorScheme="primary">
-          {blog.category?.name}
-        </Tag>
+        <Link href={`/category/${blog.category?.id}`}>
+          <Tag size="lg" variant="solid" colorScheme="primary">
+            {blog.category?.name}
+          </Tag>
+        </Link>
         <Flex flexDirection="column">
           <IconText icon={ICONS.TIME}>{formatDate(blog.publishedAt)}</IconText>
           <IconText icon={ICONS.UPDATED}>{formatDate(blog.updatedAt)}</IconText>
