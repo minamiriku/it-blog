@@ -1,7 +1,6 @@
-import { BiTime } from "react-icons/bi";
-import { GrUpdate } from "react-icons/gr";
+import { BiTime, BiRefresh } from "react-icons/bi";
 
 export const ICONS = {
   TIME: BiTime,
-  UPDATED: GrUpdate,
+  UPDATED: BiRefresh,
 };

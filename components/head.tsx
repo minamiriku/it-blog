@@ -1,10 +1,10 @@
 import Head from "next/head";
 
 const defaultHead = {
-  title: "RickのITブログ",
+  title: "RICK BLOG",
   meta: {
     name: "description",
-    content: "RickのITに関する知識を共有するブログです",
+    content: "RICKのITに関する知識を共有するブログ",
   },
 };
 

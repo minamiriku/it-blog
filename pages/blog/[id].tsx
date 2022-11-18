@@ -15,11 +15,11 @@ const BlogId: NextPage<{ blog: ITBlog.Blog }> = ({ blog }) => {
       <Heading as="h1" mt={5}>
         {blog.title}
       </Heading>
-      <Flex mt={5} justifyContent="space-between">
-        <Tag size="md" variant="solid" colorScheme="gray">
+      <Flex w="full" mt={5} justifyContent="space-between">
+        <Tag size="sm" variant="solid" colorScheme="primary">
           {blog.category?.name}
         </Tag>
-        <Flex alignItems="end" flexDirection="column">
+        <Flex flexDirection="column">
           <IconText icon={ICONS.TIME}>{formatDate(blog.publishedAt)}</IconText>
           <IconText icon={ICONS.UPDATED}>{formatDate(blog.updatedAt)}</IconText>
         </Flex>

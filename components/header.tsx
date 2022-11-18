@@ -8,10 +8,10 @@ export const Header = () => {
         <Box
           fontSize={24}
           fontWeight="bold"
-          color="primary.700"
+          color="primary.500"
           cursor="pointer"
         >
-          RickのITブログ
+          RICK BLOG
         </Box>
       </Link>
     </Flex>
