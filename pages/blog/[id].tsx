@@ -1,12 +1,12 @@
 import { GetStaticPropsContext, NextPage } from "next";
 import { Box, Flex, Heading, Image, Tag } from "@chakra-ui/react";
 import styled from "@emotion/styled";
+import { Link } from "components/core";
 import { HeadInfo } from "components/head";
 import { IconText } from "components/icon";
 import { client } from "libs/client";
 import { formatDate } from "utils/format";
 import { ICONS } from "utils/icons";
-import { Link } from "components/core";
 
 const BlogId: NextPage<{ blog: ITBlog.Blog }> = ({ blog }) => {
   return (
